@@ -39,10 +39,5 @@ class LauncherActivity : AppCompatActivity() {
             startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
             finish()
         }
-
-//        Handler().postDelayed({
-//            startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
-//            finish()
-//        }, 5000L)
     }
 }
