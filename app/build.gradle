@@ -42,9 +42,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
 
-    implementation "com.trello.rxlifecycle3:rxlifecycle:$lifecycleVersion"
-    implementation "com.trello.rxlifecycle3:rxlifecycle-android:$lifecycleVersion"
-    implementation "com.trello.rxlifecycle3:rxlifecycle-components:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion"
 
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -53,4 +50,13 @@ dependencies {
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 }
