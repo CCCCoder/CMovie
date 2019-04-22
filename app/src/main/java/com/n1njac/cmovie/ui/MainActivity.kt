@@ -1,7 +1,8 @@
-package com.n1njac.cmovie
+package com.n1njac.cmovie.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.n1njac.cmovie.R
 
 class MainActivity : AppCompatActivity() {
 

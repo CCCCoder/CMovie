@@ -1,11 +1,8 @@
-package com.n1njac.cmovie.startup
+package com.n1njac.cmovie.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
-import com.n1njac.cmovie.MainActivity
 import com.n1njac.cmovie.R
 import kotlinx.android.synthetic.main.activity_launcher.*
 import kotlinx.coroutines.GlobalScope

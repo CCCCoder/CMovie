@@ -6,5 +6,10 @@ package com.n1njac.cmovie.net
  * Mail:aiai173cc@gmail.com
  */
 
-const val BASE_API_MTIME = "https://api-m.mtime.cn/"
-const val URL_TICKETING = "PageSubArea/HotPlayMovies.api"
+const val BASE_API_MTIME = "https://api.douban.com/v2/"
+const val URL_MOVIE_SHOWING = "movie/in_theaters"
+const val URL_MOVIE_COMING_SOON = "movie/coming_soon"
+const val URL_MOVIE_TOP250 = "movie/top250"
+const val URL_MOVIE_SEARCH = "movie/search"
+
+
