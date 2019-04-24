@@ -13,6 +13,6 @@ import retrofit2.http.Query
 interface ApiService {
 
     //正在售票
-    @GET(URL_TICKETING)
+    @GET(URL_MOVIE_SHOWING)
     fun fetchTicketingInfo(@Query("locationId") locationId: Int): Observable<TicketingData>
 }
