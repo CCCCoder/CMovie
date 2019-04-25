@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">CMovie</string>
     <string name="str_splash_detail">遇到你，真美好</string>
+    <string name="str_showing">上映</string>
+    <string name="str_movie">电影</string>
+    <string name="str_me">我</string>
 </resources>

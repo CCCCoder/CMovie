@@ -18,4 +18,27 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+
+    <style name="TextAppearance.CMovie.BottomNavigationView" parent="@style/TextAppearance.MaterialComponents.BottomNavigationView.Colored">
+        <item name="android:textColor">@color/bottom_nav_item</item>
+    </style>
+
+    <style name="TextAppearance.CMovie.BottomNavigationView.Active">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Widget Styles -->
+
+
+    <style name="Widget.CMovie" parent="@android:style/Widget"/>
+
+    <style name="Widget.CMovie.BottomNav" parent="@style/Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="itemIconTint">@color/bottom_nav_item</item>
+        <item name="labelVisibilityMode">selected</item>
+        <item name="android:theme">@style/ThemeOverlay.MaterialComponents.Dark</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.CMovie.BottomNavigationView.Active</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.CMovie.BottomNavigationView</item>
+    </style>
+
 </resources>
