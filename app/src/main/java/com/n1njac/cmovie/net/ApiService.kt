@@ -14,5 +14,6 @@ interface ApiService {
 
     //正在售票
     @GET(URL_MOVIE_SHOWING)
-    fun fetchTicketingInfo(@Query("locationId") locationId: Int): Observable<TicketingData>
+    fun fetchTicketingInfo(@Query("city") city: String, @Query("start") start: Int, @Query("count") count: Int)
+            : Observable<TicketingData>
 }
