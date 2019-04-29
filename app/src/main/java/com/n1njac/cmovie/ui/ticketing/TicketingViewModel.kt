@@ -11,5 +11,4 @@ import javax.inject.Inject
 class TicketingViewModel @Inject constructor(private val repository: TicketingRepository) : ViewModel() {
 
 
-
 }
