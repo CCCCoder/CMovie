@@ -5,8 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.n1njac.cmovie.POJO.DataPackaging
 import com.n1njac.cmovie.POJO.TicketingData
+import com.n1njac.cmovie.domain.result.Result
 import com.n1njac.cmovie.net.RetrofitManager
 import com.n1njac.cmovie.net.scheduler.SchedulerUtils
+import java.lang.Exception
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -15,22 +17,26 @@ import javax.inject.Singleton
  * Copyright (c) 2019 IFLYTEK CO.,LTD. All rights reserved.
  * Mail:aiai173cc@gmail.com
  */
-@Singleton
-class TicketingRepository @Inject constructor() {
 
+interface TicketingRepository {
+    fun fetchTicketingData(city: String, start: Int, count: Int): LiveData<Result<TicketingData>>
+}
+
+@Singleton
+class DefaultTicketingRepository @Inject constructor() : TicketingRepository {
     @SuppressLint("CheckResult")
-    fun fetchTicketingData(city: String, start: Int, count: Int): LiveData<DataPackaging<TicketingData>> {
-        val liveData = MutableLiveData<DataPackaging<TicketingData>>()
+    override fun fetchTicketingData(city: String, start: Int, count: Int): LiveData<Result<TicketingData>> {
+        val liveData = MutableLiveData<Result<TicketingData>>()
         RetrofitManager.service().fetchTicketingInfo(city, start, count)
             .compose(SchedulerUtils.ioToMain())
             .subscribe({ data: TicketingData? ->
                 if (data != null) {
-                    liveData.postValue(DataPackaging.success(data))
+                    liveData.postValue(Result.Success(data))
                 } else {
-                    liveData.postValue(DataPackaging.error(null, "Empty data!"))
+                    liveData.postValue(Result.Error(Exception("data null")))
                 }
             }, {
-                liveData.postValue(DataPackaging.error(null, it.message.toString()))
+                liveData.postValue(Result.Error(Exception(it.message)))
             })
 
         return liveData
