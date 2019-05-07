@@ -5,3 +5,4 @@
 > 技术采用：kotlin+Dagger2+dataBinding+MVVM
 > API 使用豆瓣api，仅供学习使用，请勿作为商业用途。
 
+.
