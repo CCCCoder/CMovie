@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/moviePosterIv"
+            android:layout_width="100dp"
+            android:layout_height="140dp"
+            android:contentDescription="@string/str_movie_poster"
+            android:scaleType="centerCrop"
+            android:src="@drawable/p56339"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/marginLine"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="120dp" />
+
+        <TextView
+            android:id="@+id/movieNameTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:textColor="#3f4651"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/marginLine"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="权力的游戏8" />
+
+        <TextView
+            android:id="@+id/ratingTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_micro"
+            app:layout_constraintStart_toEndOf="@+id/marginLine"
+            app:layout_constraintTop_toBottomOf="@+id/movieNameTv"
+            tools:text="评分:9.1" />
+
+        <TextView
+            android:id="@+id/actorsTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_micro"
+            app:layout_constraintStart_toEndOf="@+id/marginLine"
+            app:layout_constraintTop_toBottomOf="@+id/ratingTv"
+            tools:text="小罗伯特,唐尼" />
+
+        <TextView
+            android:id="@+id/movieTagTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_micro"
+            app:layout_constraintStart_toEndOf="@+id/marginLine"
+            app:layout_constraintTop_toBottomOf="@+id/actorsTv"
+            tools:text="科幻/战争" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
