@@ -17,6 +17,13 @@ import com.n1njac.cmovie.domain.ticketing.LoadTicketingDataUseCaseResult
 class TicketingAdapter(private val lifecycleOwner: LifecycleOwner,
                        private val ticketingViewModel: TicketingViewModel) : RecyclerView.Adapter<TicketingAdapter.TicketingViewHolder>() {
 
+
+    var ticketingItems: List<LoadTicketingDataUseCaseResult> = emptyList()
+        set(value) {
+            field = value
+            differ.submitList(ticketingItems)
+        }
+
     private val differ = AsyncListDiffer<LoadTicketingDataUseCaseResult>(this, DiffCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TicketingViewHolder {
@@ -24,13 +31,14 @@ class TicketingAdapter(private val lifecycleOwner: LifecycleOwner,
     }
 
     override fun onBindViewHolder(holder: TicketingViewHolder, position: Int) {
-        holder.binding
+        holder.binding.apply {
+            data = differ.currentList[position]
+            setLifecycleOwner(lifecycleOwner)
+            executePendingBindings()
+        }
     }
 
-    override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
+    override fun getItemCount() = differ.currentList.size
 
     class TicketingViewHolder(val binding: ItemTicketingBinding) : RecyclerView.ViewHolder(binding.root)
 }

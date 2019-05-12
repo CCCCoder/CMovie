@@ -9,6 +9,7 @@ import com.n1njac.cmovie.ui.top.Top250Fragment
 import com.n1njac.cmovie.utils.*
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.IllegalStateException
 
 class MainActivity : DaggerAppCompatActivity() {
 
@@ -30,6 +31,14 @@ class MainActivity : DaggerAppCompatActivity() {
                 else -> false
             }
         }
+
+        if (savedInstanceState == null) {
+            navigation_bn.selectedItemId = R.id.navigation_showing
+        } else {
+            mCurrentFragment = supportFragmentManager.findFragmentById(FRAGMENT_ID)
+                    ?: throw IllegalStateException("Activity recreated, but no fragment found!")
+        }
+
     }
 
     private fun replaceFragment(fragment: Fragment) {
