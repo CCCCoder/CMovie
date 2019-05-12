@@ -19,12 +19,13 @@ buildscript {
         rxPermissionsVersion = '0.10.2'
         retrofitVersion = '2.4.0'
 
-        glideVersion = '4.8.0'
+        glideVersion = '4.9.0'
         gsonVersion = '2.8.2'
         okhttpVersion = '3.10.0'
         daggerVersion = '2.22.1'
         lifecycleExtensionsVersion = '2.1.0-alpha04'
         coroutinesVersion = '1.1.1'
+
 
     }
 

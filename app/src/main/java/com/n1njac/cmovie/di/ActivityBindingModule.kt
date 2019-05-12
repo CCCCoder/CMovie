@@ -15,7 +15,10 @@ abstract class ActivityBindingModule {
 
     @ActivityScoped
     @ContributesAndroidInjector(
-        modules = [TicketingModule::class]
+        modules = [
+            TicketingModule::class,
+            ViewPoolModule::class
+        ]
     )
     internal abstract fun mainActivity(): MainActivity
 }

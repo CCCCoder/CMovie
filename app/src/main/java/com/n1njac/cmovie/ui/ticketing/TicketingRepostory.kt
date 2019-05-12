@@ -23,7 +23,7 @@ interface TicketingRepository {
 }
 
 @Singleton
-class DefaultTicketingRepository @Inject constructor() : TicketingRepository {
+open class DefaultTicketingRepository @Inject constructor() : TicketingRepository {
     @SuppressLint("CheckResult")
     override fun fetchTicketingData(city: String, start: Int, count: Int): LiveData<Result<TicketingData>> {
         val liveData = MutableLiveData<Result<TicketingData>>()

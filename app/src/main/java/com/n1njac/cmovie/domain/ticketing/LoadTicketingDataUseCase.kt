@@ -13,7 +13,7 @@ import javax.inject.Inject
  * Mail:aiai173cc@gmail.com
  */
 open class LoadTicketingDataUseCase @Inject constructor(private val repository: TicketingRepository) :
-    MediatorUseCase<LoadTicketingDataUseCaseParameters, MutableList<LoadTicketingDataUseCaseResult>>() {
+        MediatorUseCase<LoadTicketingDataUseCaseParameters, MutableList<LoadTicketingDataUseCaseResult>>() {
 
     override fun execute(parameter: LoadTicketingDataUseCaseParameters) {
         result.postValue(Result.Loading)
@@ -36,7 +36,7 @@ open class LoadTicketingDataUseCase @Inject constructor(private val repository: 
                             genres.forEachIndexed { index, tag ->
                                 tags += if (index < genres.size - 1) "$tag/" else tag
                             }
-                            val useCaseResult = LoadTicketingDataUseCaseResult(title, rating.average, starring, images.medium, tags)
+                            val useCaseResult = LoadTicketingDataUseCaseResult(subjects.id, title, rating.average, starring, images.medium, tags)
                             useCaseResultList.add(useCaseResult)
                         }
                         result.postValue(Result.Success(useCaseResultList))
@@ -51,15 +51,16 @@ open class LoadTicketingDataUseCase @Inject constructor(private val repository: 
 }
 
 data class LoadTicketingDataUseCaseParameters(
-    val city: String,
-    val start: Int = 0,
-    val count: Int = 10
+        val city: String,
+        val start: Int = 0,
+        val count: Int = 10
 )
 
 data class LoadTicketingDataUseCaseResult(
-    private val movieTitle: String,
-    private val movieRating: Double,
-    private val starring: String,
-    private val posterPic: String,
-    private val tags: String
+        val id: String,
+        val movieTitle: String,
+        val movieRating: Double,
+        val starring: String,
+        val posterPic: String,
+        val tags: String
 )

@@ -1,6 +1,7 @@
 package com.n1njac.cmovie.di
 
 import androidx.lifecycle.ViewModel
+import dagger.MapKey
 import kotlin.reflect.KClass
 
 /**
@@ -13,4 +14,6 @@ import kotlin.reflect.KClass
     AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER,
     AnnotationTarget.PROPERTY_SETTER
 )
+@Retention(AnnotationRetention.RUNTIME)
+@MapKey
 annotation class ViewModelKey(val value: KClass<out ViewModel>)

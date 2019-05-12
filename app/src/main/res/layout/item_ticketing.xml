@@ -4,17 +4,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="ticketingData"
+            type="com.n1njac.cmovie.domain.ticketing.LoadTicketingDataUseCaseResult" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
+
             android:id="@+id/moviePosterIv"
             android:layout_width="100dp"
             android:layout_height="140dp"
             android:contentDescription="@string/str_movie_poster"
             android:scaleType="centerCrop"
             android:src="@drawable/p56339"
+            app:imageUri="@{ticketingData.posterPic}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,6 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@{ticketingData.movieTitle}"
             android:textColor="#3f4651"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/marginLine"
@@ -41,6 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_micro"
+            android:text="@{ticketingData.movieRating}"
             app:layout_constraintStart_toEndOf="@+id/marginLine"
             app:layout_constraintTop_toBottomOf="@+id/movieNameTv"
             tools:text="评分:9.1" />
@@ -50,6 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_micro"
+            android:text="@{ticketingData.starring}"
             app:layout_constraintStart_toEndOf="@+id/marginLine"
             app:layout_constraintTop_toBottomOf="@+id/ratingTv"
             tools:text="小罗伯特,唐尼" />
@@ -59,6 +71,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_micro"
+            android:text="@{ticketingData.tags}"
             app:layout_constraintStart_toEndOf="@+id/marginLine"
             app:layout_constraintTop_toBottomOf="@+id/actorsTv"
             tools:text="科幻/战争" />
