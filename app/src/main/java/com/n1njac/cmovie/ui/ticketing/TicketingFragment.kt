@@ -1,17 +1,21 @@
 package com.n1njac.cmovie.ui.ticketing
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.n1njac.cmovie.R
 import com.n1njac.cmovie.databinding.FragmentTicketingBinding
 import com.n1njac.cmovie.domain.result.EventObserver
 import com.n1njac.cmovie.utils.activityViewModelProvider
+import com.n1njac.cmovie.widget.SpaceDecoration
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
+import kotlin.math.roundToInt
 
 /**
  * Created by N1njaC on 2019/4/22 21:14.
@@ -35,15 +39,19 @@ class TicketingFragment : DaggerFragment() {
             setLifecycleOwner(this@TicketingFragment)
             viewModel = ticketingViewModel
         }
-        val adapter = TicketingAdapter(this, ticketingViewModel)
-        mBinding.ticketingRv.adapter = adapter
+        val ticketingAdapter = TicketingAdapter(this, ticketingViewModel)
+        mBinding.ticketingRv.apply {
+            adapter = ticketingAdapter
+            addItemDecoration(SpaceDecoration(0, 0, 0, resources.getDimensionPixelSize(R.dimen.spacing_normal)))
+        }
         ticketingViewModel.session.observe(this, Observer {
             it ?: return@Observer
-            adapter.ticketingItems = it
+            ticketingAdapter.ticketingItems = it
         })
 
         ticketingViewModel.errorMessage.observe(this, EventObserver {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+            Log.d(TAG, "error===>$it")
         })
 
 
@@ -52,6 +60,6 @@ class TicketingFragment : DaggerFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        ticketingViewModel.setCityName("广州")
+        ticketingViewModel.setCityName(290)
     }
 }

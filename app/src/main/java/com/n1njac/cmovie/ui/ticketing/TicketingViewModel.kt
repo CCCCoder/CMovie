@@ -18,7 +18,7 @@ import javax.inject.Inject
  * Mail:aiai173cc@gmail.com
  */
 class TicketingViewModel @Inject constructor(private val loadTicketingDataUseCase: LoadTicketingDataUseCase) :
-        ViewModel() {
+    ViewModel() {
 
     val isLoading: LiveData<Boolean>
 
@@ -47,11 +47,10 @@ class TicketingViewModel @Inject constructor(private val loadTicketingDataUseCas
                 _errorMessage.value = Event(result.exception.message ?: "Error")
             }
         }
-
     }
 
-    fun setCityName(newCityName: String) {
-        loadTicketingDataUseCase.execute(LoadTicketingDataUseCaseParameters(newCityName, count = 30))
+    fun setCityName(locationId: Int) {
+        loadTicketingDataUseCase.execute(LoadTicketingDataUseCaseParameters(locationId))
     }
 
 }

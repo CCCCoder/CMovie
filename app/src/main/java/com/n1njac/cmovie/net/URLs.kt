@@ -7,7 +7,7 @@ package com.n1njac.cmovie.net
  */
 
 const val BASE_API_MTIME = "https://api-m.mtime.cn/"
-const val URL_MOVIE_SHOWING = "LocationMovies.api"
+const val URL_MOVIE_SHOWING = "Showtime/LocationMovies.api"
 
 
 

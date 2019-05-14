@@ -3,8 +3,7 @@ package com.n1njac.cmovie.ui.ticketing
 import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.n1njac.cmovie.POJO.DataPackaging
-import com.n1njac.cmovie.POJO.TicketingData
+import com.n1njac.cmovie.POJO.LocationMovies
 import com.n1njac.cmovie.domain.result.Result
 import com.n1njac.cmovie.net.RetrofitManager
 import com.n1njac.cmovie.net.scheduler.SchedulerUtils
@@ -19,17 +18,17 @@ import javax.inject.Singleton
  */
 
 interface TicketingRepository {
-    fun fetchTicketingData(city: String, start: Int, count: Int): LiveData<Result<TicketingData>>
+    fun fetchTicketingData(locationId: Int): LiveData<Result<LocationMovies>>
 }
 
 @Singleton
 open class DefaultTicketingRepository @Inject constructor() : TicketingRepository {
     @SuppressLint("CheckResult")
-    override fun fetchTicketingData(city: String, start: Int, count: Int): LiveData<Result<TicketingData>> {
-        val liveData = MutableLiveData<Result<TicketingData>>()
-        RetrofitManager.service().fetchTicketingInfo(city, start, count)
+    override fun fetchTicketingData(locationId: Int): LiveData<Result<LocationMovies>> {
+        val liveData = MutableLiveData<Result<LocationMovies>>()
+        RetrofitManager.service().fetchTicketingInfo(locationId)
             .compose(SchedulerUtils.ioToMain())
-            .subscribe({ data: TicketingData? ->
+            .subscribe({ data: LocationMovies? ->
                 if (data != null) {
                     liveData.postValue(Result.Success(data))
                 } else {

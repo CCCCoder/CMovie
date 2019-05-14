@@ -33,6 +33,13 @@
             android:orientation="vertical"
             app:layout_constraintGuide_begin="120dp" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/spacing_normal" />
+
         <TextView
             android:id="@+id/movieNameTv"
             android:layout_width="0dp"
@@ -41,6 +48,7 @@
             android:text="@{data.movieTitle}"
             android:textColor="#3f4651"
             android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
             app:layout_constraintStart_toEndOf="@+id/marginLine"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="权力的游戏8" />
@@ -51,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_micro"
             android:text="@{String.valueOf(data.movieRating)}"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
             app:layout_constraintStart_toEndOf="@+id/marginLine"
             app:layout_constraintTop_toBottomOf="@+id/movieNameTv"
             tools:text="评分:9.1" />
@@ -61,9 +70,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_micro"
             android:text="@{data.starring}"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
             app:layout_constraintStart_toEndOf="@+id/marginLine"
             app:layout_constraintTop_toBottomOf="@+id/ratingTv"
-            tools:text="小罗伯特,唐尼" />
+            tools:text="小罗伯特,唐尼/小罗伯特,唐尼/小罗伯特,唐尼/小罗伯特,唐尼/小罗伯特,唐尼" />
 
         <TextView
             android:id="@+id/movieTagTv"
@@ -71,9 +81,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_micro"
             android:text="@{data.tags}"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
             app:layout_constraintStart_toEndOf="@+id/marginLine"
             app:layout_constraintTop_toBottomOf="@+id/actorsTv"
             tools:text="科幻/战争" />
+
+
+        <TextView
+            android:id="@+id/movieIntroductionTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_micro"
+            android:text="@{data.introduction}"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+            app:layout_constraintStart_toEndOf="@+id/marginLine"
+            app:layout_constraintTop_toBottomOf="@+id/movieTagTv"
+            tools:text="超级英雄们共谋大计战灭霸" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
