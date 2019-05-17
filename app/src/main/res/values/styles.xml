@@ -19,7 +19,7 @@
     </style>
 
 
-    <style name="TextAppearance.CMovie.BottomNavigationView" parent="@style/TextAppearance.MaterialComponents.BottomNavigationView.Colored">
+    <style name="TextAppearance.CMovie.BottomNavigationView" parent="@style/Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="android:textColor">@color/bottom_nav_item</item>
     </style>
 

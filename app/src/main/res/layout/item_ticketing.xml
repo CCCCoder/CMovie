@@ -11,9 +11,13 @@
             type="com.n1njac.cmovie.domain.ticketing.LoadTicketingDataUseCaseResult" />
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/shape_ticketing_item"
+        tools:ignore="UnusedAttribute">
 
         <ImageView
             android:id="@+id/moviePosterIv"

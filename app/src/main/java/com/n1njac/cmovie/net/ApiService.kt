@@ -1,6 +1,6 @@
 package com.n1njac.cmovie.net
 
-import com.n1njac.cmovie.POJO.LocationMovies
+import com.n1njac.cmovie.entity.LocationMovies
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -3,7 +3,7 @@ package com.n1njac.cmovie.ui.ticketing
 import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.n1njac.cmovie.POJO.LocationMovies
+import com.n1njac.cmovie.entity.LocationMovies
 import com.n1njac.cmovie.domain.result.Result
 import com.n1njac.cmovie.net.RetrofitManager
 import com.n1njac.cmovie.net.scheduler.SchedulerUtils

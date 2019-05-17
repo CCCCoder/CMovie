@@ -2,6 +2,7 @@ package com.n1njac.cmovie.di
 
 import com.n1njac.cmovie.ui.MainActivity
 import com.n1njac.cmovie.ui.ticketing.TicketingModule
+import com.n1njac.cmovie.ui.top.Top250Module
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -15,10 +16,11 @@ abstract class ActivityBindingModule {
 
     @ActivityScoped
     @ContributesAndroidInjector(
-        modules = [
-            TicketingModule::class,
-            ViewPoolModule::class
-        ]
+            modules = [
+                TicketingModule::class,
+                Top250Module::class,
+                ViewPoolModule::class
+            ]
     )
     internal abstract fun mainActivity(): MainActivity
 }

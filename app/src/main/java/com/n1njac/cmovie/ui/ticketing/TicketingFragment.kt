@@ -53,8 +53,6 @@ class TicketingFragment : DaggerFragment() {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
             Log.d(TAG, "error===>$it")
         })
-
-
         return mBinding.root
     }
 

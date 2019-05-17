@@ -1,4 +1,4 @@
-package com.n1njac.cmovie.POJO
+package com.n1njac.cmovie.entity
 
 data class LocationMovies(
     val bImg: String,
