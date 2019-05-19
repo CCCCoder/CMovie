@@ -8,5 +8,5 @@ import javax.inject.Inject
  * Copyright (c) 2019 IFLYTEK CO.,LTD. All rights reserved.
  * Mail:aiai173cc@gmail.com
  */
-class Top250ViewModel @Inject constructor() : ViewModel() {
+class TopMovieViewModel @Inject constructor() : ViewModel() {
 }

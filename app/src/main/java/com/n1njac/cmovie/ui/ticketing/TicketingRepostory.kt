@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.n1njac.cmovie.entity.LocationMovies
 import com.n1njac.cmovie.domain.result.Result
+import com.n1njac.cmovie.net.BASE_API_MTIME_V1
 import com.n1njac.cmovie.net.RetrofitManager
 import com.n1njac.cmovie.net.scheduler.SchedulerUtils
 import java.lang.Exception
@@ -26,7 +27,7 @@ open class DefaultTicketingRepository @Inject constructor() : TicketingRepositor
     @SuppressLint("CheckResult")
     override fun fetchTicketingData(locationId: Int): LiveData<Result<LocationMovies>> {
         val liveData = MutableLiveData<Result<LocationMovies>>()
-        RetrofitManager.service().fetchTicketingInfo(locationId)
+        RetrofitManager.service(BASE_API_MTIME_V1).fetchTicketingInfo(locationId)
             .compose(SchedulerUtils.ioToMain())
             .subscribe({ data: LocationMovies? ->
                 if (data != null) {

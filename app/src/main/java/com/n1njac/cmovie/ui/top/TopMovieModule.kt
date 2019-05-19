@@ -14,15 +14,15 @@ import dagger.multibindings.IntoMap
  * Mail:aiai173cc@gmail.com
  */
 @Module
-internal abstract class Top250Module {
+internal abstract class TopMovieModule {
 
     @FragmentScoped
     @ContributesAndroidInjector
-    internal abstract fun contributeTop250Fragment(): Top250Fragment
+    internal abstract fun contributeTopMovieFragment(): TopMovieFragment
 
     @Binds
     @IntoMap
-    @ViewModelKey(Top250ViewModel::class)
-    abstract fun bindTop250ViewModel(viewModel: Top250ViewModel): ViewModel
+    @ViewModelKey(TopMovieViewModel::class)
+    abstract fun bindTopMovieViewModel(viewModel: TopMovieViewModel): ViewModel
 
 }

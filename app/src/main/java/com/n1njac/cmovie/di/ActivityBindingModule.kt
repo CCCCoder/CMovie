@@ -2,7 +2,7 @@ package com.n1njac.cmovie.di
 
 import com.n1njac.cmovie.ui.MainActivity
 import com.n1njac.cmovie.ui.ticketing.TicketingModule
-import com.n1njac.cmovie.ui.top.Top250Module
+import com.n1njac.cmovie.ui.top.TopMovieModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -18,7 +18,7 @@ abstract class ActivityBindingModule {
     @ContributesAndroidInjector(
             modules = [
                 TicketingModule::class,
-                Top250Module::class,
+                TopMovieModule::class,
                 ViewPoolModule::class
             ]
     )

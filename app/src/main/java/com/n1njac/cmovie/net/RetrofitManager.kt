@@ -14,9 +14,9 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 object RetrofitManager {
 
-    fun service(): ApiService = getRetrofit().create(ApiService::class.java)
+    fun service(baseUrl: String): ApiService = getRetrofit(baseUrl).create(ApiService::class.java)
 
-    private fun getRetrofit(): Retrofit {
+    private fun getRetrofit(baseUrl: String): Retrofit {
 
         val builder = OkHttpClient.Builder()
 //        此处可以添加头部信息
@@ -29,7 +29,7 @@ object RetrofitManager {
         builder.addInterceptor(logInterceptor())
 
         return Retrofit.Builder()
-            .baseUrl(BASE_API_MTIME)
+            .baseUrl(baseUrl)
             .client(builder.build())
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

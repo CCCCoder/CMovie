@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import com.n1njac.cmovie.R
 import com.n1njac.cmovie.ui.about.AboutFragment
 import com.n1njac.cmovie.ui.ticketing.TicketingFragment
-import com.n1njac.cmovie.ui.top.Top250Fragment
+import com.n1njac.cmovie.ui.top.TopMovieFragment
 import com.n1njac.cmovie.utils.*
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,7 +26,7 @@ class MainActivity : DaggerAppCompatActivity() {
         navigation_bn.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_showing -> consume { replaceFragment(TicketingFragment()) }
-                R.id.navigation_all -> consume { replaceFragment(Top250Fragment()) }
+                R.id.navigation_all -> consume { replaceFragment(TopMovieFragment()) }
                 R.id.navigation_me -> consume { replaceFragment(AboutFragment()) }
                 else -> false
             }
