@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dailySignData"
+            type="com.n1njac.cmovie.entity.DailySignData.Rcmd" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        tools:ignore="UnusedAttribute,ContentDescription">
+
+        <ImageView
+            android:id="@+id/posterIv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/test_poster"
+            app:imageUri="@{dailySignData.poster}"
+            app:layout_constraintDimensionRatio="w,4:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bottom_radius"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/posterIv">
+
+            <TextView
+                android:id="@+id/descTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:singleLine="true"
+                android:text="@{dailySignData.desc}"
+                android:textColor="#000"
+                android:textSize="17sp"
+                tools:text="扎克施奈德漫改经典《守望者》" />
+
+            <TextView
+                android:id="@+id/quoteTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="@dimen/spacing_micro"
+                android:singleLine="true"
+                android:text="@{dailySignData.rcmdQuote}"
+                android:textSize="15sp"
+                tools:text="一部满是英雄的反英雄主义电影" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
