@@ -7,7 +7,7 @@
 
         <variable
             name="dailySignData"
-            type="com.n1njac.cmovie.entity.DailySignData.Rcmd" />
+            type="com.n1njac.cmovie.domain.usecase.LoadDailySignDataUseCaseResult" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,7 +21,7 @@
             android:layout_height="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/test_poster"
-            app:imageUri="@{dailySignData.poster}"
+            app:imageUri="@{dailySignData.posterUrl}"
             app:layout_constraintDimensionRatio="w,4:3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="@dimen/spacing_normal"
                 android:singleLine="true"
-                android:text="@{dailySignData.desc}"
+                android:text="@{dailySignData.description}"
                 android:textColor="#000"
                 android:textSize="17sp"
                 tools:text="扎克施奈德漫改经典《守望者》" />
@@ -54,7 +54,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="@dimen/spacing_micro"
                 android:singleLine="true"
-                android:text="@{dailySignData.rcmdQuote}"
+                android:text="@{dailySignData.quote}"
                 android:textSize="15sp"
                 tools:text="一部满是英雄的反英雄主义电影" />
 

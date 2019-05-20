@@ -2,13 +2,12 @@ package com.n1njac.cmovie.ui.ticketing
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.n1njac.cmovie.domain.result.Event
 import com.n1njac.cmovie.domain.result.Result
-import com.n1njac.cmovie.domain.ticketing.LoadTicketingDataUseCase
-import com.n1njac.cmovie.domain.ticketing.LoadTicketingDataUseCaseParameters
-import com.n1njac.cmovie.domain.ticketing.LoadTicketingDataUseCaseResult
+import com.n1njac.cmovie.domain.usecase.LoadTicketingDataUseCase
+import com.n1njac.cmovie.domain.usecase.LoadTicketingDataUseCaseParameters
+import com.n1njac.cmovie.domain.usecase.LoadTicketingDataUseCaseResult
 import com.n1njac.cmovie.utils.map
 import javax.inject.Inject
 
@@ -44,7 +43,7 @@ class TicketingViewModel @Inject constructor(private val loadTicketingDataUseCas
 
         _errorMessage.addSource(loadTicketingDataResult) { result ->
             if (result is Result.Error) {
-                _errorMessage.value = Event(result.exception.message ?: "Error")
+                _errorMessage.value = Event(result.exception.message ?: "Unknown Error")
             }
         }
     }

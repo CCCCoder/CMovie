@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.n1njac.cmovie.databinding.ItemTicketingBinding
-import com.n1njac.cmovie.domain.ticketing.LoadTicketingDataUseCaseResult
+import com.n1njac.cmovie.domain.usecase.LoadTicketingDataUseCaseResult
 
 /**
  * Created by N1njaC on 2019/5/12 15:56.

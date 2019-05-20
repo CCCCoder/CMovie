@@ -10,7 +10,7 @@ const val BASE_API_MTIME_V1 = "https://api-m.mtime.cn/"
 const val BASE_API_MTIME_V2_CONTENT = "https://content-api-m.mtime.cn/"
 const val BASE_API_MTIME_V2_TICKET = "https://ticket-api-m.mtime.cn/"
 const val URL_MOVIE_SHOWING = "Showtime/LocationMovies.api"
-const val DAILY = "dailyRcmdMovies.api"
+const val URL_DAILY_SIGN = "dailyRcmdMovies.api"
 
 
 

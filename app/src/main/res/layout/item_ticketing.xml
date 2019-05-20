@@ -8,7 +8,7 @@
 
         <variable
             name="data"
-            type="com.n1njac.cmovie.domain.ticketing.LoadTicketingDataUseCaseResult" />
+            type="com.n1njac.cmovie.domain.usecase.LoadTicketingDataUseCaseResult" />
     </data>
 
 

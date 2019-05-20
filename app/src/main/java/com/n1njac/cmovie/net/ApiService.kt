@@ -1,5 +1,7 @@
 package com.n1njac.cmovie.net
 
+import com.n1njac.cmovie.base.BaseResponse
+import com.n1njac.cmovie.entity.DailySignData
 import com.n1njac.cmovie.entity.LocationMovies
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -14,6 +16,9 @@ interface ApiService {
 
     //正在售票
     @GET(URL_MOVIE_SHOWING)
-    fun fetchTicketingInfo(@Query("locationId") locationId:Int)
+    fun fetchTicketingInfo(@Query("locationId") locationId: Int)
             : Observable<LocationMovies>
+
+    @GET(URL_DAILY_SIGN)
+    fun fetchDailySignData(): Observable<BaseResponse<DailySignData>>
 }

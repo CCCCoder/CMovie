@@ -4,6 +4,7 @@
     <dimen name="spacing_normal">8dp</dimen>
     <dimen name="spacing_micro">4dp</dimen>
     <dimen name="spacing_item">20dp</dimen>
+    <dimen name="toolbar_textsize">17sp</dimen>
 
 
 </resources>

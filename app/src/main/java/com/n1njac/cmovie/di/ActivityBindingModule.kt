@@ -1,6 +1,8 @@
 package com.n1njac.cmovie.di
 
 import com.n1njac.cmovie.ui.MainActivity
+import com.n1njac.cmovie.ui.dailysign.DailySignActivity
+import com.n1njac.cmovie.ui.dailysign.DailySignModule
 import com.n1njac.cmovie.ui.ticketing.TicketingModule
 import com.n1njac.cmovie.ui.top.TopMovieModule
 import dagger.Module
@@ -23,4 +25,9 @@ abstract class ActivityBindingModule {
             ]
     )
     internal abstract fun mainActivity(): MainActivity
+
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = [DailySignModule::class])
+    internal abstract fun dailySignActivity(): DailySignActivity
 }

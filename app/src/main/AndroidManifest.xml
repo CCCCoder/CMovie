@@ -16,19 +16,21 @@
             android:theme="@style/AppTheme"
             android:networkSecurityConfig="@xml/network_security_config"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.MainActivity">
-
-        </activity>
+        <activity android:name=".ui.MainActivity"/>
 
         <activity
+                android:screenOrientation="portrait"
                 android:name=".ui.LauncherActivity"
                 android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+                android:screenOrientation="portrait"
+                android:name=".ui.dailysign.DailySignActivity"/>
     </application>
 
 </manifest>

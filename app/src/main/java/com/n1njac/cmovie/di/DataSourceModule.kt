@@ -1,10 +1,11 @@
 package com.n1njac.cmovie.di
 
+import com.n1njac.cmovie.ui.dailysign.DailySignRepository
+import com.n1njac.cmovie.ui.dailysign.DefaultDailySignRepository
 import com.n1njac.cmovie.ui.ticketing.DefaultTicketingRepository
 import com.n1njac.cmovie.ui.ticketing.TicketingRepository
 import dagger.Module
 import dagger.Provides
-import javax.inject.Named
 import javax.inject.Singleton
 
 /**
@@ -21,4 +22,9 @@ class DataSourceModule {
         return DefaultTicketingRepository()
     }
 
+    @Singleton
+    @Provides
+    fun provideDailySignDataSource(): DailySignRepository {
+        return DefaultDailySignRepository()
+    }
 }

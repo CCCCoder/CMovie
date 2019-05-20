@@ -1,7 +1,6 @@
-package com.n1njac.cmovie.domain.ticketing
+package com.n1njac.cmovie.domain.usecase
 
 import com.n1njac.cmovie.domain.MediatorUseCase
-import com.n1njac.cmovie.domain.UseCase
 import com.n1njac.cmovie.domain.result.Result
 import com.n1njac.cmovie.ui.ticketing.TicketingRepository
 import javax.inject.Inject
@@ -34,13 +33,13 @@ open class LoadTicketingDataUseCase @Inject constructor(private val repository: 
                         val poster = ms.img
                         val introduction = ms.commonSpecial
                         val useCaseResult = LoadTicketingDataUseCaseResult(
-                            id,
-                            movieTitle,
-                            rating,
-                            actors,
-                            poster,
-                            tags,
-                            introduction
+                                id,
+                                movieTitle,
+                                rating,
+                                actors,
+                                poster,
+                                tags,
+                                introduction
                         )
                         useCaseResultList.add(useCaseResult)
                     }
