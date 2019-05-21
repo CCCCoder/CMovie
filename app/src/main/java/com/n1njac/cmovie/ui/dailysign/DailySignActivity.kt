@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.n1njac.cmovie.databinding.ActivityDailySignBinding
 import com.n1njac.cmovie.domain.result.EventObserver
 import com.n1njac.cmovie.utils.viewModelProvider
+import com.n1njac.cmovie.widget.DepthPageTransformer
 import com.n1njac.cmovie.widget.ZoomOutPageTransformer
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
@@ -49,7 +50,8 @@ class DailySignActivity : DaggerAppCompatActivity() {
             mBinding.dailyVp.apply {
                 adapter = pagerAdapter
                 offscreenPageLimit = 3
-                setPageTransformer(false, ZoomOutPageTransformer())
+//                setPageTransformer(false, ZoomOutPageTransformer())
+                setPageTransformer(false, DepthPageTransformer())
                 pageMargin = 0
             }
         })

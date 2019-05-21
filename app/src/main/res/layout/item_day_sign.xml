@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="dailySignData"
             type="com.n1njac.cmovie.domain.usecase.LoadDailySignDataUseCaseResult" />

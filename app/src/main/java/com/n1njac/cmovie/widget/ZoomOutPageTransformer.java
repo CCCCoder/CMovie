@@ -1,5 +1,6 @@
 package com.n1njac.cmovie.widget;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.viewpager.widget.ViewPager;
@@ -10,12 +11,15 @@ import androidx.viewpager.widget.ViewPager;
  * Mail:aiai173cc@gmail.com
  */
 public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
+    public static final String TAG = "ZoomOutTransformer";
     //自由控制缩放比例
     private static final float MAX_SCALE = 1f;
     private static final float MIN_SCALE = 0.85f;//0.85f
 
     @Override
     public void transformPage(View page, float position) {
+
+        Log.i(TAG, "position:" + position);
 
         if (position <= 1) {
             float scaleFactor = MIN_SCALE + (1 - Math.abs(position)) * (MAX_SCALE - MIN_SCALE);
