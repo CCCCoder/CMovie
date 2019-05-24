@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.*
+import com.n1njac.cmovie.app.CMApplication
 
 /**
  * Created by N1njaC on 2019/5/7 21:42.
@@ -25,13 +26,13 @@ inline fun consume(func: () -> Unit): Boolean {
 // ViewModels
 
 inline fun <reified VM : ViewModel> FragmentActivity.viewModelProvider(provider: ViewModelProvider.Factory) =
-        ViewModelProviders.of(this, provider).get(VM::class.java)
+    ViewModelProviders.of(this, provider).get(VM::class.java)
 
 inline fun <reified VM : ViewModel> Fragment.viewModelProvider(provider: ViewModelProvider.Factory) =
-        ViewModelProviders.of(this, provider).get(VM::class.java)
+    ViewModelProviders.of(this, provider).get(VM::class.java)
 
 inline fun <reified VM : ViewModel> Fragment.activityViewModelProvider(provider: ViewModelProvider.Factory) =
-        ViewModelProviders.of(requireActivity(), provider).get(VM::class.java)
+    ViewModelProviders.of(requireActivity(), provider).get(VM::class.java)
 
 // endregion
 
@@ -43,3 +44,5 @@ fun <X, Y> LiveData<X>.map(body: (X) -> Y): LiveData<Y> {
 fun <X, Y> LiveData<X>.switchMap(body: (X) -> LiveData<Y>): LiveData<Y> {
     return Transformations.switchMap(this, body)
 }
+
+fun getContext() = CMApplication.context

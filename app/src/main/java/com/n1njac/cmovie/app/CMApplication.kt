@@ -1,9 +1,11 @@
 package com.n1njac.cmovie.app
 
 import android.app.Application
+import android.content.Context
 import com.n1njac.cmovie.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
+import kotlin.properties.Delegates
 
 /**
  * Created by N1njaC on 2019/4/15 22:11.
@@ -12,9 +14,14 @@ import dagger.android.DaggerApplication
  */
 class CMApplication : DaggerApplication() {
 
+    companion object {
+        var context: Context by Delegates.notNull()
+            private set
+    }
 
     override fun onCreate() {
         super.onCreate()
+        context = applicationContext
     }
 
 

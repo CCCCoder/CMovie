@@ -14,13 +14,10 @@ public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
     public static final String TAG = "ZoomOutTransformer";
     //自由控制缩放比例
     private static final float MAX_SCALE = 1f;
-    private static final float MIN_SCALE = 0.85f;//0.85f
+    private static final float MIN_SCALE = 0.88f;
 
     @Override
     public void transformPage(View page, float position) {
-
-        Log.i(TAG, "position:" + position);
-
         if (position <= 1) {
             float scaleFactor = MIN_SCALE + (1 - Math.abs(position)) * (MAX_SCALE - MIN_SCALE);
             page.setScaleX(scaleFactor);
