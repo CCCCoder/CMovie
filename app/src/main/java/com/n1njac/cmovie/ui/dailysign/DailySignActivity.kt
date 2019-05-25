@@ -21,10 +21,11 @@ import com.n1njac.cmovie.domain.usecase.LoadDailySignDataUseCaseResult
 import android.graphics.drawable.Drawable
 import com.bumptech.glide.request.target.CustomTarget
 import androidx.annotation.Nullable
+import androidx.core.app.ShareCompat
 import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.bumptech.glide.request.transition.Transition
+import com.qmuiteam.qmui.widget.QMUILoadingView
 import jp.wasabeef.glide.transformations.BlurTransformation
-import java.util.*
 
 
 /**
@@ -41,7 +42,6 @@ class DailySignActivity : FullScreenActivity() {
     private lateinit var mDataList: MutableList<LoadDailySignDataUseCaseResult>
 
     companion object {
-
         private const val TAG = "DailySignActivity"
         fun startDailySignActivity(activity: Activity) {
             val intent = Intent(activity, DailySignActivity::class.java)
@@ -52,6 +52,8 @@ class DailySignActivity : FullScreenActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityDailySignBinding.inflate(layoutInflater)
+        mViewModel = viewModelProvider(viewModelFactory)
+        mBinding.viewModel = mViewModel
         setContentView(mBinding.root)
         adjustToolbarPosition()
         initView()
@@ -64,7 +66,6 @@ class DailySignActivity : FullScreenActivity() {
     }
 
     private fun initView() {
-        mViewModel = viewModelProvider(viewModelFactory)
         mViewModel.session.observe(this, Observer {
             it ?: return@Observer
             it.reverse()
@@ -96,22 +97,44 @@ class DailySignActivity : FullScreenActivity() {
                 setCurrentBg(position)
             }
         })
+
+        mViewModel.quitAction.observe(this, EventObserver {
+            onBackPressed()
+        })
+
+        mViewModel.shareAction.observe(this, EventObserver {
+            sharePoster()
+        })
     }
 
     private fun setCurrentBg(position: Int) {
         if (::mDataList.isInitialized && mDataList.isNotEmpty()) {
             Glide.with(this)
-                .load(mDataList[position].posterUrl)
-                .apply(bitmapTransform(BlurTransformation(25, 3)))
-                .into(object : CustomTarget<Drawable>() {
-                    override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
-                        mBinding.root.background = resource
-                    }
+                    .load(mDataList[position].posterUrl)
+                    .apply(bitmapTransform(BlurTransformation(25, 3)))
+                    .into(object : CustomTarget<Drawable>() {
+                        override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
+                            mBinding.root.background = resource
+                        }
 
-                    override fun onLoadCleared(@Nullable placeholder: Drawable?) {
-
-                    }
-                })
+                        override fun onLoadCleared(@Nullable placeholder: Drawable?) {
+                        }
+                    })
         }
+    }
+
+    /**
+     * 当前海报生成图片，分享
+     */
+    private fun sharePoster() {
+        ShareCompat.IntentBuilder.from(this)
+                .setType("text/plain")
+                .setText("test content")
+                .setChooserTitle("test title")
+                .startChooser()
+    }
+
+    override fun onBackPressed() {
+        finish()
     }
 }

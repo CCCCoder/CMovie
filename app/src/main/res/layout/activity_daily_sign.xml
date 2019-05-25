@@ -3,6 +3,13 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.n1njac.cmovie.ui.dailysign.DailySignViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/root"
         android:layout_width="match_parent"
@@ -22,6 +29,9 @@
                 android:id="@+id/returnIv"
                 android:layout_width="?actionBarSize"
                 android:layout_height="?actionBarSize"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{()->viewModel.onReturnClick()}"
                 android:scaleType="centerInside"
                 android:src="@drawable/bg_return_cha"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -39,6 +49,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/shareIv"
+                android:layout_width="?actionBarSize"
+                android:layout_height="?actionBarSize"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{()->viewModel.onReturnClick()}"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_share"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

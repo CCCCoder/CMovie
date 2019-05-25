@@ -2,6 +2,7 @@ package com.n1njac.cmovie.ui.dailysign
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.n1njac.cmovie.domain.result.Event
 import com.n1njac.cmovie.domain.result.Result
@@ -16,10 +17,18 @@ import javax.inject.Inject
  * Mail:aiai173cc@gmail.com
  */
 class DailySignViewModel @Inject constructor(private val loadDailySignDataUseCase: LoadDailySignDataUseCase) :
-        ViewModel() {
+    ViewModel(), OnPageClickEvent {
 
     val isLoading: LiveData<Boolean>
     private val loadDailySignDataResult: MediatorLiveData<Result<MutableList<LoadDailySignDataUseCaseResult>>>
+
+    private val _quitAction = MutableLiveData<Event<Unit>>()
+    val quitAction: LiveData<Event<Unit>>
+        get() = _quitAction
+
+    private val _shareAction = MutableLiveData<Event<Unit>>()
+    val shareAction: LiveData<Event<Unit>>
+        get() = _shareAction
 
     private val _sessions = MediatorLiveData<MutableList<LoadDailySignDataUseCaseResult>>()
     val session: LiveData<MutableList<LoadDailySignDataUseCaseResult>>
@@ -43,7 +52,20 @@ class DailySignViewModel @Inject constructor(private val loadDailySignDataUseCas
                 _errorMsg.value = Event(it.exception.message ?: "Unknown Error")
             }
         }
-
         loadDailySignDataUseCase.execute(Unit)
     }
+
+    override fun onReturnClick() {
+        _quitAction.value = Event(Unit)
+    }
+
+    override fun onShareClick() {
+        _shareAction.value = Event(Unit)
+    }
+}
+
+interface OnPageClickEvent {
+    fun onReturnClick()
+
+    fun onShareClick()
 }
