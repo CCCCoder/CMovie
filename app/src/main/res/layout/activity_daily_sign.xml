@@ -56,7 +56,7 @@
                 android:layout_height="?actionBarSize"
                 android:clickable="true"
                 android:focusable="true"
-                android:onClick="@{()->viewModel.onReturnClick()}"
+                android:onClick="@{()->viewModel.onShareClick()}"
                 android:scaleType="centerInside"
                 android:src="@drawable/icon_share"
                 app:layout_constraintBottom_toBottomOf="parent"
