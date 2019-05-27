@@ -4,6 +4,8 @@ import com.n1njac.cmovie.ui.dailysign.DailySignRepository
 import com.n1njac.cmovie.ui.dailysign.DefaultDailySignRepository
 import com.n1njac.cmovie.ui.ticketing.DefaultTicketingRepository
 import com.n1njac.cmovie.ui.ticketing.TicketingRepository
+import com.n1njac.cmovie.ui.top.DefaultTopMovieRepository
+import com.n1njac.cmovie.ui.top.TopMovieRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -26,5 +28,11 @@ class DataSourceModule {
     @Provides
     fun provideDailySignDataSource(): DailySignRepository {
         return DefaultDailySignRepository()
+    }
+
+    @Singleton
+    @Provides
+    fun provideTopSummaryDataSource(): TopMovieRepository {
+        return DefaultTopMovieRepository()
     }
 }

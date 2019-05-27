@@ -7,7 +7,7 @@
 > pageindex：当前页数
 > searchtype：搜索类型（电影：3，演员：2）
 
-* 展示各类汇总榜单列表
+* 展示 各类汇总榜单列表
 > 榜单接口(需要分页) GET：
 > https://content-api-m.mtime.cn/movieList/channel/list.api?channelId=4&pageIndex=1&pageSize=30
 > 
