@@ -29,6 +29,15 @@ class TopMovieFragment : DaggerFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mBinding = FragmentTop250Binding.inflate(layoutInflater, container, false)
         topMovieViewModel = activityViewModelProvider(viewModelFactory)
+
+
+
         return mBinding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        //后期增加分页
+        topMovieViewModel.fetchTopMovieData(4, 1, 30)
     }
 }
