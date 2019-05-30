@@ -25,7 +25,8 @@ open class LoadTopMovieDataUseCase @Inject constructor(private val repository: T
                     val list = mutableListOf<LoadTopMovieDataUseCaseResult>()
                     it.data.list.forEach { data ->
                         data.apply {
-                            val result = LoadTopMovieDataUseCaseResult(articleId, movieCount, movieImg, title)
+                            val countStr = "共${movieCount}部"
+                            val result = LoadTopMovieDataUseCaseResult(articleId, countStr, movieImg, title)
                             list.add(result)
                         }
                     }
@@ -48,7 +49,7 @@ data class LoadTopMovieDataUseCaseParameters(
 
 data class LoadTopMovieDataUseCaseResult(
         val articleId: Long,
-        val movieCount: Int,
+        val movieCount: String,
         val coverUrl: String,
         val title: String
 )
