@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.n1njac.cmovie.R
 import com.n1njac.cmovie.databinding.FragmentTop250Binding
 import com.n1njac.cmovie.utils.activityViewModelProvider
+import com.n1njac.cmovie.widget.GrideSpaceDecoration
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -36,6 +38,8 @@ class TopMovieFragment : DaggerFragment() {
         mBinding.topRv.apply {
             adapter = topMovieAdapter
             layoutManager = GridLayoutManager(requireContext(), 3)
+            addItemDecoration(GrideSpaceDecoration(resources.getDimensionPixelSize(R.dimen.spacing_normal)))
+
         }
 
         topMovieViewModel.session.observe(this, Observer {
