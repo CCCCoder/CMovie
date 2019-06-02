@@ -1,4 +1,4 @@
-package com.n1njac.cmovie.ui
+package com.n1njac.cmovie.ui.startup
 
 import android.content.Intent
 import android.os.Bundle

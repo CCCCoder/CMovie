@@ -6,6 +6,7 @@
     <dimen name="spacing_item">20dp</dimen>
     <dimen name="toolbar_textsize">17sp</dimen>
     <dimen name="actionbar_size">56dp</dimen>
-
+    <dimen name="dialog_vertical_margin">32dp</dimen>
+    <dimen name="dialog_horizontal_margin">64dp</dimen>
 
 </resources>

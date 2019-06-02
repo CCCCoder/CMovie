@@ -16,4 +16,5 @@
     <color name="spacer_grey">#e0e0e0</color>
     <color name="white_90">#e6ffffff</color>
     <color name="gray_838">#838996</color>
+    <color name="scrim">#33000000</color>
 </resources>

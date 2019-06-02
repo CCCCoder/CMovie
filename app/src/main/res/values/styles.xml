@@ -31,14 +31,25 @@
     <!-- Widget Styles -->
 
 
-    <style name="Widget.CMovie" parent="@android:style/Widget"/>
+    <style name="Widget.CMovie" parent="@android:style/Widget" />
 
     <style name="Widget.CMovie.BottomNav" parent="@style/Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="itemIconTint">@color/bottom_nav_item</item>
         <item name="labelVisibilityMode">selected</item>
         <item name="android:theme">@style/ThemeOverlay.MaterialComponents.Dark</item>
-        <item name="itemTextAppearanceActive">@style/TextAppearance.CMovie.BottomNavigationView.Active</item>
-        <item name="itemTextAppearanceInactive">@style/TextAppearance.CMovie.BottomNavigationView</item>
+        <item name="itemTextAppearanceActive">
+            @style/TextAppearance.CMovie.BottomNavigationView.Active
+        </item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.CMovie.BottomNavigationView
+        </item>
+    </style>
+
+
+    <style name="CustomDimDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
     </style>
 
 </resources>

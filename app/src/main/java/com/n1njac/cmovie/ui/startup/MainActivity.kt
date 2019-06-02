@@ -1,9 +1,10 @@
-package com.n1njac.cmovie.ui
+package com.n1njac.cmovie.ui.startup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.n1njac.cmovie.R
 import com.n1njac.cmovie.ui.about.AboutFragment
+import com.n1njac.cmovie.ui.dailysign.DailySignDialog
 import com.n1njac.cmovie.ui.ticketing.TicketingFragment
 import com.n1njac.cmovie.ui.top.TopMovieFragment
 import com.n1njac.cmovie.utils.*
@@ -38,6 +39,9 @@ class MainActivity : DaggerAppCompatActivity() {
             mCurrentFragment = supportFragmentManager.findFragmentById(FRAGMENT_ID)
                     ?: throw IllegalStateException("Activity recreated, but no fragment found!")
         }
+
+        val dialog = DailySignDialog()
+        dialog.show(supportFragmentManager, "daily_dialog")
 
     }
 

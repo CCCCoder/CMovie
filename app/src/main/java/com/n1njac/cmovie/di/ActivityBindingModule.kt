@@ -1,6 +1,6 @@
 package com.n1njac.cmovie.di
 
-import com.n1njac.cmovie.ui.MainActivity
+import com.n1njac.cmovie.ui.startup.MainActivity
 import com.n1njac.cmovie.ui.dailysign.DailySignActivity
 import com.n1njac.cmovie.ui.dailysign.DailySignModule
 import com.n1njac.cmovie.ui.ticketing.TicketingModule
