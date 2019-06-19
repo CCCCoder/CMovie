@@ -2,6 +2,8 @@ package com.n1njac.cmovie.di
 
 import com.n1njac.cmovie.ui.dailysign.DailySignRepository
 import com.n1njac.cmovie.ui.dailysign.DefaultDailySignRepository
+import com.n1njac.cmovie.ui.moviedetail.DefaultMovieDetailRepository
+import com.n1njac.cmovie.ui.moviedetail.MovieDetailRepository
 import com.n1njac.cmovie.ui.ticketing.DefaultTicketingRepository
 import com.n1njac.cmovie.ui.ticketing.TicketingRepository
 import com.n1njac.cmovie.ui.top.DefaultTopMovieRepository
@@ -34,5 +36,11 @@ class DataSourceModule {
     @Provides
     fun provideTopSummaryDataSource(): TopMovieRepository {
         return DefaultTopMovieRepository()
+    }
+
+    @Singleton
+    @Provides
+    fun provideMovieDetailDataSource(): MovieDetailRepository {
+        return DefaultMovieDetailRepository()
     }
 }

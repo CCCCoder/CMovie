@@ -3,6 +3,7 @@ package com.n1njac.cmovie.net
 import com.n1njac.cmovie.base.BaseResponse
 import com.n1njac.cmovie.entity.DailySignData
 import com.n1njac.cmovie.entity.LocationMovies
+import com.n1njac.cmovie.entity.MovieDetailData
 import com.n1njac.cmovie.entity.TopSummaryData
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -27,8 +28,15 @@ interface ApiService {
     //top榜单汇总
     @GET(URL_TOP_SUMMARY)
     fun fetchTopSummaryData(
-            @Query("channelId") channelId: Int,
-            @Query("pageIndex") pageIndex: Int,
-            @Query("pageSize") pageSize: Int
+        @Query("channelId") channelId: Int,
+        @Query("pageIndex") pageIndex: Int,
+        @Query("pageSize") pageSize: Int
     ): Observable<BaseResponse<TopSummaryData>>
+
+    @GET(URL_MOVIE_DETAIL)
+    fun fetchMovieDetailData(
+        @Query("locationId") locationId: Int,
+        @Query("movieId") movieId: Int
+    ): Observable<BaseResponse<MovieDetailData>>
+
 }

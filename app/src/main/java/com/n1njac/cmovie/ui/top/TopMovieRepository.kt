@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.n1njac.cmovie.base.NET_RESPONSE_SUCCESS
 import com.n1njac.cmovie.domain.result.Result
-import com.n1njac.cmovie.entity.TopSummaryData
 import com.n1njac.cmovie.net.BASE_API_MTIME_V2_CONTENT
 import com.n1njac.cmovie.net.RetrofitManager
 import com.n1njac.cmovie.net.scheduler.SchedulerUtils

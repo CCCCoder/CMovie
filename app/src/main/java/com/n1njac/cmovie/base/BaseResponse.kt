@@ -7,9 +7,9 @@ package com.n1njac.cmovie.base
  */
 
 
-const val NET_RESPONSE_SUCCESS = 1
+const val NET_RESPONSE_SUCCESS = "1"
 
-data class BaseResponse<T>(val code: Int,
+data class BaseResponse<T>(val code: String,
                            val data: T,
                            val msg: String,
                            val showMsg: String)
